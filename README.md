@@ -2,90 +2,90 @@
 
 # LinuxDPI-TR
 
-**Linux desktop application to bypass internet restrictions in Turkey**
+**Türkiye'deki internet kısıtlamalarını aşmak için Linux masaüstü uygulaması**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://python.org)
 [![GTK4](https://img.shields.io/badge/GTK-4-green?logo=gnome)](https://gtk.org)
 [![Arch Linux](https://img.shields.io/badge/Arch-Linux-1793D1?logo=arch-linux)](https://archlinux.org)
-[![Author](https://img.shields.io/badge/Author-Samet%20Ege%20Derin-orange)](https://github.com/sametege)
+[![Yapımcı](https://img.shields.io/badge/Yapımcı-Samet%20Ege%20Derin-orange)](https://github.com/sametege)
 
 </div>
 
 ---
 
-## What is it?
+## Nedir?
 
-**LinuxDPI-TR** is an open-source Linux application developed for internet users in Turkey. It lets you manage DPI (Deep Packet Inspection) bypass and VPN tunneling tools from a single GTK4 interface.
+**LinuxDPI-TR**, Türkiye'deki internet kullanıcıları için geliştirilmiş, DPI (Derin Paket İnceleme) atlatma ve VPN tünelleme araçlarını tek bir GTK4 arayüzünden yönetmenizi sağlayan açık kaynaklı bir Linux uygulamasıdır.
 
-It handles the installation and management of popular tools like Cloudflare WARP, Zapret, and ByeDPI **with a single click** — no technical knowledge required.
+Cloudflare WARP, Zapret, ByeDPI gibi popüler araçların kurulum ve yönetimini **tek tıkla** halleder; teknik bilgi gerektirmez.
 
 ---
 
-## Features
+## Özellikler
 
-| Tab | Description |
+| Sekme | Açıklama |
 |---|---|
-| **WireGuard** | WireGuard tunnel via Cloudflare WARP — one-button connect/disconnect |
-| **ByeDPI** | DPI bypass via SOCKS5 proxy, runs as a systemd service |
-| **Zapret** | System-wide DPI bypass based on nfqws, with ISP-specific presets |
-| **DNS** | Google, Cloudflare, Quad9, OpenDNS options |
-| **Advanced** | Manage, remove all services, monitor logs |
+| **WireGuard** | Cloudflare WARP üzerinden WireGuard tüneli — tek buton bağlan/kes |
+| **ByeDPI** | SOCKS5 proxy ile DPI atlatma, systemd servisi olarak çalışır |
+| **Zapret** | nfqws tabanlı sistem geneli DPI atlatma, ISP'ye göre hazır ayarlar |
+| **DNS** | Google, Cloudflare, Quad9, OpenDNS seçenekleri |
+| **Gelişmiş** | Tüm servisleri yönet, kaldır, logları izle |
 
-- Missing tools are **installed automatically** (pacman + AUR)
-- **Custom password dialog** instead of Polkit (asks once, caches for the session)
-- Dark theme
-- Autostart as a systemd service
+- Eksik araçlar **otomatik kurulur** (pacman + AUR)
+- Polkit yerine **kendi şifre diyaloğu** (tek seferlik sorar, önbelleğe alır)
+- Koyu tema, Türkçe arayüz
+- Systemd servisi olarak otomatik başlatma
 
 ---
 
-## Installation
+## Kurulum
 
-### Method 1 — One-liner (Fastest)
+### Yöntem 1 — Tek Komut (En Hızlı)
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/sametege/LinuxDPI-TR/main/install.sh)
 ```
 
-That's it. The script will install all required packages and set everything up automatically.
+Hepsi bu kadar. Script gerekli tüm paketleri kurar ve her şeyi otomatik olarak ayarlar.
 
 ---
 
-### Method 2 — Step by Step
+### Yöntem 2 — Adım Adım
 
-**Step 1 — Install git if you don't have it**
+**Adım 1 — Git yoksa kur**
 ```bash
 sudo pacman -S git
 ```
 
-**Step 2 — Clone the repository**
+**Adım 2 — Repoyu klonla**
 ```bash
 git clone https://github.com/sametege/LinuxDPI-TR.git
 cd LinuxDPI-TR
 ```
 
-**Step 3 — Run the installer**
+**Adım 3 — Kurulum scriptini çalıştır**
 ```bash
 bash install.sh
 ```
 
-The installer will automatically:
-- Install required packages (`python-gobject`, `gtk4`, `wireguard-tools`, `nftables`)
-- Install AUR tools (`wgcf`, `byedpi`, `zapret`) if you have `yay` or `paru`
-- Add the app to `/usr/local/bin/linuxdpi-tr`
-- Create a desktop shortcut in your application menu
+Script otomatik olarak şunları yapar:
+- Gerekli paketleri kurar (`python-gobject`, `gtk4`, `wireguard-tools`, `nftables`)
+- `yay` veya `paru` varsa AUR araçlarını kurar (`wgcf`, `byedpi`, `zapret`)
+- Uygulamayı `/usr/local/bin/linuxdpi-tr` olarak ekler
+- Uygulama menüsüne masaüstü kısayolu oluşturur
 
-**Step 4 — Launch**
+**Adım 4 — Başlat**
 ```bash
 linuxdpi-tr
 ```
-Or search for **LinuxDPI-TR** in your application menu.
+Ya da uygulama menüsünden **LinuxDPI-TR** olarak ara.
 
 ---
 
-### Method 3 — Run Without Installing
+### Yöntem 3 — Kurmadan Çalıştır
 
-If you just want to try it without installing:
+Kurmadan denemek istiyorsan:
 
 ```bash
 git clone https://github.com/sametege/LinuxDPI-TR.git
@@ -93,101 +93,101 @@ cd LinuxDPI-TR
 python3 linuxdpi.py
 ```
 
-> You may need to install dependencies manually first:
+> Önce bağımlılıkları manuel kurman gerekebilir:
 > ```bash
 > sudo pacman -S python-gobject wireguard-tools nftables
-> yay -S wgcf byedpi zapret   # requires yay or paru
+> yay -S wgcf byedpi zapret   # yay veya paru gerekli
 > ```
 
 ---
 
-## Requirements
+## Gereksinimler
 
-| Required | Optional |
+| Zorunlu | İsteğe Bağlı |
 |---|---|
-| Python 3.8+ | yay or paru (AUR helper) |
+| Python 3.8+ | yay veya paru (AUR yardımcısı) |
 | python-gobject (GTK4) | proxychains-ng |
 | wireguard-tools | |
 | nftables | |
 
-> Without an AUR helper, `wgcf`, `byedpi`, and `zapret` cannot be installed automatically — you can install them manually or through the app later.
+> AUR yardımcısı yoksa `wgcf`, `byedpi`, `zapret` araçları otomatik kurulamaz — manuel kurabilir ya da uygulama içinden sonradan kurabilirsin.
 
 ---
 
-## Usage
+## Kullanım
 
 ### WireGuard / Cloudflare WARP
 
-1. Switch to the **WireGuard** tab
-2. Click **"Connect"**
-3. Password is requested on first run (once per session)
-4. Missing tools are installed automatically, registration is done, and the connection is established
+1. **WireGuard** sekmesine geç
+2. **"Bağlan"** butonuna bas
+3. İlk çalıştırmada şifre istenir (oturum boyunca bir kez)
+4. Eksik araçlar otomatik kurulur, kayıt yapılır, bağlantı kurulur
 
 ### ByeDPI (SOCKS5 Proxy)
 
-1. Switch to the **ByeDPI** tab
-2. Set the port number (default: `1080`)
-3. Click **"Install Service"**
-4. Set your browser proxy to `127.0.0.1:1080`
+1. **ByeDPI** sekmesine geç
+2. Port numarasını belirle (varsayılan: `1080`)
+3. **"Servis Kur"** butonuna bas
+4. Tarayıcı proxy ayarını `127.0.0.1:1080` yap
 
-> For Discord: `proxychains discord`
+> Discord için: `proxychains discord`
 
-### Zapret (System-wide DPI Bypass)
+### Zapret (Sistem Geneli DPI Atlatma)
 
-1. Switch to the **Zapret** tab
-2. Select your ISP (Turk Telekom / Turkcell / Vodafone TR / Generic)
-3. **"Install Service"** — starts automatically at boot
-4. **"Run Once"** — runs only for the current session
+1. **Zapret** sekmesine geç
+2. Servis sağlayıcını seç (Türk Telekom / Turkcell / Vodafone TR / Genel)
+3. **"Hizmet Kur"** — sistem başlangıcında otomatik çalışır
+4. **"Tek Seferlik"** — sadece şu an için çalıştırır
 
-### DNS Settings
+### DNS Ayarları
 
-1. Switch to the **DNS** tab
-2. Select a DNS server
-3. Click **"Apply DNS"**
-
----
-
-## Screenshots
-
-> *(Screenshots coming soon)*
+1. **DNS** sekmesine geç
+2. DNS sunucusunu seç
+3. **"DNS Ayarla"** butonuna bas
 
 ---
 
-## Supported Distributions
+## Ekran Görüntüleri
 
-The primary target is **Arch Linux**, but it works on any distribution with GTK4 and Python:
+> *(Ekran görüntüleri yakında eklenecek)*
+
+---
+
+## Desteklenen Dağıtımlar
+
+Birincil hedef **Arch Linux** olmakla birlikte GTK4 ve Python bulunan her dağıtımda çalışır:
 
 - Arch Linux / CachyOS / Manjaro
-- Fedora (package names may differ)
+- Fedora (paket isimleri farklı olabilir)
 - Ubuntu 22.04+ / Debian 12+
 
 ---
 
-## Tools & Credits
+## Kullanılan Araçlar ve Atıflar
 
-- **[wgcf](https://github.com/ViRb3/wgcf)** — Cloudflare WARP WireGuard profile generator
-- **[wireguard-tools](https://git.zx2c4.com/wireguard-tools)** — WireGuard VPN client
+- **[wgcf](https://github.com/ViRb3/wgcf)** — Cloudflare WARP WireGuard profili oluşturma
+- **[wireguard-tools](https://git.zx2c4.com/wireguard-tools)** — WireGuard VPN istemcisi
 - **[byedpi](https://github.com/hufrea/byedpi)** — DPI bypass SOCKS5 proxy
-- **[zapret](https://github.com/bol-van/zapret)** — System-wide DPI bypass (nfqws)
-- **[nftables](https://netfilter.org/projects/nftables/)** — Linux packet filtering
+- **[zapret](https://github.com/bol-van/zapret)** — Sistem geneli DPI atlatma (nfqws)
+- **[nftables](https://netfilter.org/projects/nftables/)** — Linux paket filtreleme
 
 ---
 
-## Disclaimer
+## Sorumluluk Reddi
 
-This software is intended for **educational and personal use only.**  
-The user is solely responsible for any legal consequences arising from its use.
+Bu yazılım yalnızca **eğitim ve kişisel kullanım** amaçlıdır.  
+Kullanımdan doğan yasal sorumluluk kullanıcıya aittir.
 
 ---
 
-## License
+## Lisans
 
 MIT License — © 2026 Samet Ege Derin  
-See the [LICENSE](LICENSE) file for details.
+Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
 ---
 
-## Contributing
+## Katkı
 
-Feel free to open pull requests and issues.  
+Pull request ve issue açmaktan çekinmeyin.  
 GitHub: [github.com/sametege/LinuxDPI-TR](https://github.com/sametege/LinuxDPI-TR)
